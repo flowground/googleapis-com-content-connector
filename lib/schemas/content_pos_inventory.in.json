@@ -1,0 +1,77 @@
+{
+    "type": "object",
+    "properties": {
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "targetMerchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "contentLanguage": {
+                    "description": "The two-letter ISO 639-1 language code for the item.",
+                    "type": "string"
+                },
+                "gtin": {
+                    "description": "Global Trade Item Number.",
+                    "type": "string"
+                },
+                "itemId": {
+                    "description": "A unique identifier for the item.",
+                    "type": "string"
+                },
+                "price": {
+                    "description": "The current price of the item.",
+                    "properties": {
+                        "currency": {
+                            "description": "The currency of the price.",
+                            "type": "string"
+                        },
+                        "value": {
+                            "description": "The price represented as a number.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "quantity": {
+                    "description": "The available quantity of the item.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "storeCode": {
+                    "description": "The identifier of the merchant's store. Either a storeCode inserted via the API or the code of the store in Google My Business.",
+                    "type": "string"
+                },
+                "targetCountry": {
+                    "description": "The CLDR territory code for the item.",
+                    "type": "string"
+                },
+                "timestamp": {
+                    "description": "The inventory timestamp, in ISO 8601 format.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

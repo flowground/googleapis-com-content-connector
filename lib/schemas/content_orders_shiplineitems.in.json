@@ -1,0 +1,85 @@
+{
+    "type": "object",
+    "properties": {
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "orderId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "lineItems": {
+                    "description": "Line items to ship.",
+                    "items": {
+                        "properties": {
+                            "lineItemId": {
+                                "description": "The ID of the line item that is shipped. Either lineItemId or productId is required.",
+                                "type": "string"
+                            },
+                            "productId": {
+                                "description": "The ID of the product to ship. This is the REST ID used in the products service. Either lineItemId or productId is required.",
+                                "type": "string"
+                            },
+                            "quantity": {
+                                "description": "The quantity that is shipped.",
+                                "format": "uint32",
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "operationId": {
+                    "description": "The ID of the operation. Unique across all operations for a given order.",
+                    "type": "string"
+                },
+                "shipmentGroupId": {
+                    "description": "ID of the shipment group. Required for orders that use the orderinvoices service.",
+                    "type": "string"
+                },
+                "shipmentInfos": {
+                    "description": "Shipment information. This field is repeated because a single line item can be shipped in several packages (and have several tracking IDs).",
+                    "items": {
+                        "properties": {
+                            "carrier": {
+                                "description": "The carrier handling the shipment. See shipments[].carrier in the  Orders resource representation for a list of acceptable values.",
+                                "type": "string"
+                            },
+                            "shipmentId": {
+                                "description": "The ID of the shipment. This is assigned by the merchant and is unique to each shipment.",
+                                "type": "string"
+                            },
+                            "trackingId": {
+                                "description": "The tracking ID for the shipment.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

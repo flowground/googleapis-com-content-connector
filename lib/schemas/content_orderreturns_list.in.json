@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "createdEndDate": {
+            "type": "string"
+        },
+        "createdStartDate": {
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer"
+        },
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "orderBy": {
+            "type": "string",
+            "enum": [
+                "returnCreationTimeAsc",
+                "returnCreationTimeDesc"
+            ]
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

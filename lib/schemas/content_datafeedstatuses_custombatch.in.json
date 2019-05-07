@@ -1,0 +1,72 @@
+{
+    "type": "object",
+    "properties": {
+        "alt": {
+            "type": "string",
+            "enum": [
+                "json"
+            ],
+            "default": "json"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "entries": {
+                    "description": "The request entries to be processed in the batch.",
+                    "items": {
+                        "description": "A batch entry encoding a single non-batch datafeedstatuses request.",
+                        "properties": {
+                            "batchId": {
+                                "description": "An entry ID, unique within the batch request.",
+                                "format": "uint32",
+                                "type": "integer"
+                            },
+                            "country": {
+                                "description": "The country for which to get the datafeed status. If this parameter is provided then language must also be provided. Note that for multi-target datafeeds this parameter is required.",
+                                "type": "string"
+                            },
+                            "datafeedId": {
+                                "description": "The ID of the data feed to get.",
+                                "format": "uint64",
+                                "type": "string"
+                            },
+                            "language": {
+                                "description": "The language for which to get the datafeed status. If this parameter is provided then country must also be provided. Note that for multi-target datafeeds this parameter is required.",
+                                "type": "string"
+                            },
+                            "merchantId": {
+                                "description": "The ID of the managing account.",
+                                "format": "uint64",
+                                "type": "string"
+                            },
+                            "method": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "accountId": {
+            "required": true,
+            "type": "string"
+        },
+        "country": {
+            "required": true,
+            "type": "string"
+        },
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "posDataProviderId": {
+            "type": "string"
+        },
+        "posExternalAccountId": {
+            "type": "string"
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

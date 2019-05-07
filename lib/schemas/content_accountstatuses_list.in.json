@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "destinations": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "maxResults": {
+            "type": "integer"
+        },
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

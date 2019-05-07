@@ -1,0 +1,54 @@
+{
+    "type": "object",
+    "properties": {
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "orderId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "deliverByDate": {
+                    "description": "Updated delivery by date, in ISO 8601 format. If not specified only ship by date is updated.",
+                    "type": "string"
+                },
+                "lineItemId": {
+                    "description": "The ID of the line item to set metadata. Either lineItemId or productId is required.",
+                    "type": "string"
+                },
+                "operationId": {
+                    "description": "The ID of the operation. Unique across all operations for a given order.",
+                    "type": "string"
+                },
+                "productId": {
+                    "description": "The ID of the product to set metadata. This is the REST ID used in the products service. Either lineItemId or productId is required.",
+                    "type": "string"
+                },
+                "shipByDate": {
+                    "description": "Updated ship by date, in ISO 8601 format. If not specified only deliver by date is updated.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

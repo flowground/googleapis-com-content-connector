@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "storeCode": {
+            "required": true,
+            "type": "string"
+        },
+        "targetMerchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

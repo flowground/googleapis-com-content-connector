@@ -1,0 +1,52 @@
+{
+    "type": "object",
+    "properties": {
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "orderId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "items": {
+                    "description": "Returned items.",
+                    "items": {
+                        "properties": {
+                            "lineItemId": {
+                                "description": "The ID of the line item to return.",
+                                "type": "string"
+                            },
+                            "quantity": {
+                                "description": "Quantity that is returned.",
+                                "format": "uint32",
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

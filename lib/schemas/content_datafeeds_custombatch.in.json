@@ -1,0 +1,190 @@
+{
+    "type": "object",
+    "properties": {
+        "alt": {
+            "type": "string",
+            "enum": [
+                "json"
+            ],
+            "default": "json"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "entries": {
+                    "description": "The request entries to be processed in the batch.",
+                    "items": {
+                        "description": "A batch entry encoding a single non-batch datafeeds request.",
+                        "properties": {
+                            "batchId": {
+                                "description": "An entry ID, unique within the batch request.",
+                                "format": "uint32",
+                                "type": "integer"
+                            },
+                            "datafeed": {
+                                "description": "The data feed to insert.",
+                                "properties": {
+                                    "attributeLanguage": {
+                                        "description": "The two-letter ISO 639-1 language in which the attributes are defined in the data feed.",
+                                        "type": "string"
+                                    },
+                                    "contentType": {
+                                        "description": "The type of data feed. For product inventory feeds, only feeds for local stores, not online stores, are supported.",
+                                        "type": "string"
+                                    },
+                                    "fetchSchedule": {
+                                        "description": "Fetch schedule for the feed file.",
+                                        "properties": {
+                                            "dayOfMonth": {
+                                                "description": "The day of the month the feed file should be fetched (1-31).",
+                                                "format": "uint32",
+                                                "type": "integer"
+                                            },
+                                            "fetchUrl": {
+                                                "description": "The URL where the feed file can be fetched. Google Merchant Center will support automatic scheduled uploads using the HTTP, HTTPS, FTP, or SFTP protocols, so the value will need to be a valid link using one of those four protocols.",
+                                                "type": "string"
+                                            },
+                                            "hour": {
+                                                "description": "The hour of the day the feed file should be fetched (0-23).",
+                                                "format": "uint32",
+                                                "type": "integer"
+                                            },
+                                            "minuteOfHour": {
+                                                "description": "The minute of the hour the feed file should be fetched (0-59). Read-only.",
+                                                "format": "uint32",
+                                                "type": "integer"
+                                            },
+                                            "password": {
+                                                "description": "An optional password for fetch_url.",
+                                                "type": "string"
+                                            },
+                                            "paused": {
+                                                "description": "Whether the scheduled fetch is paused or not.",
+                                                "type": "boolean"
+                                            },
+                                            "timeZone": {
+                                                "description": "Time zone used for schedule. UTC by default. E.g., \"America/Los_Angeles\".",
+                                                "type": "string"
+                                            },
+                                            "username": {
+                                                "description": "An optional user name for fetch_url.",
+                                                "type": "string"
+                                            },
+                                            "weekday": {
+                                                "description": "The day of the week the feed file should be fetched.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "fileName": {
+                                        "description": "The filename of the feed. All feeds must have a unique file name.",
+                                        "type": "string"
+                                    },
+                                    "format": {
+                                        "description": "Format of the feed file.",
+                                        "properties": {
+                                            "columnDelimiter": {
+                                                "description": "Delimiter for the separation of values in a delimiter-separated values feed. If not specified, the delimiter will be auto-detected. Ignored for non-DSV data feeds.",
+                                                "type": "string"
+                                            },
+                                            "fileEncoding": {
+                                                "description": "Character encoding scheme of the data feed. If not specified, the encoding will be auto-detected.",
+                                                "type": "string"
+                                            },
+                                            "quotingMode": {
+                                                "description": "Specifies how double quotes are interpreted. If not specified, the mode will be auto-detected. Ignored for non-DSV data feeds.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "id": {
+                                        "description": "The ID of the data feed.",
+                                        "format": "int64",
+                                        "type": "string"
+                                    },
+                                    "kind": {
+                                        "default": "content#datafeed",
+                                        "description": "Identifies what kind of resource this is. Value: the fixed string \"content#datafeed\".",
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "description": "A descriptive name of the data feed.",
+                                        "type": "string"
+                                    },
+                                    "targets": {
+                                        "description": "The targets this feed should apply to (country, language, destinations).",
+                                        "items": {
+                                            "properties": {
+                                                "country": {
+                                                    "description": "The country where the items in the feed will be included in the search index, represented as a  CLDR territory code.",
+                                                    "type": "string"
+                                                },
+                                                "excludedDestinations": {
+                                                    "description": "The list of destinations to exclude for this target (corresponds to unchecked check boxes in Merchant Center).",
+                                                    "items": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "includedDestinations": {
+                                                    "description": "The list of destinations to include for this target (corresponds to checked check boxes in Merchant Center). Default destinations are always included unless provided in the excluded_destination field.",
+                                                    "items": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "language": {
+                                                    "description": "The two-letter ISO 639-1 language of the items in the feed. Must be a valid language for targets[].country.",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "datafeedId": {
+                                "description": "The ID of the data feed to get, delete or fetch.",
+                                "format": "uint64",
+                                "type": "string"
+                            },
+                            "merchantId": {
+                                "description": "The ID of the managing account.",
+                                "format": "uint64",
+                                "type": "string"
+                            },
+                            "method": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

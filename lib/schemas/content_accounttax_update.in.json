@@ -1,0 +1,76 @@
+{
+    "type": "object",
+    "properties": {
+        "accountId": {
+            "required": true,
+            "type": "string"
+        },
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The tax settings of a merchant account. All methods require the admin role.",
+            "properties": {
+                "accountId": {
+                    "description": "The ID of the account to which these account tax settings belong.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "kind": {
+                    "default": "content#accountTax",
+                    "description": "Identifies what kind of resource this is. Value: the fixed string \"content#accountTax\".",
+                    "type": "string"
+                },
+                "rules": {
+                    "description": "Tax rules. Updating the tax rules will enable US taxes (not reversible). Defining no rules is equivalent to not charging tax at all.",
+                    "items": {
+                        "description": "Tax calculation rule to apply in a state or province (USA only).",
+                        "properties": {
+                            "country": {
+                                "description": "Country code in which tax is applicable.",
+                                "type": "string"
+                            },
+                            "locationId": {
+                                "description": "State (or province) is which the tax is applicable, described by its location ID (also called criteria ID).",
+                                "format": "uint64",
+                                "type": "string"
+                            },
+                            "ratePercent": {
+                                "description": "Explicit tax rate in percent, represented as a floating point number without the percentage character. Must not be negative.",
+                                "type": "string"
+                            },
+                            "shippingTaxed": {
+                                "description": "If true, shipping charges are also taxed.",
+                                "type": "boolean"
+                            },
+                            "useGlobalRate": {
+                                "description": "Whether the tax rate is taken from a global tax table or specified explicitly.",
+                                "type": "boolean"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

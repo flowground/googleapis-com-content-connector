@@ -1,0 +1,58 @@
+{
+    "type": "object",
+    "properties": {
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "orderId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "carrier": {
+                    "description": "The carrier handling the shipment. Not updated if missing. See shipments[].carrier in the  Orders resource representation for a list of acceptable values.",
+                    "type": "string"
+                },
+                "deliveryDate": {
+                    "description": "Date on which the shipment has been delivered, in ISO 8601 format. Optional and can be provided only if status is delivered.",
+                    "type": "string"
+                },
+                "operationId": {
+                    "description": "The ID of the operation. Unique across all operations for a given order.",
+                    "type": "string"
+                },
+                "shipmentId": {
+                    "description": "The ID of the shipment.",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "New status for the shipment. Not updated if missing.",
+                    "type": "string"
+                },
+                "trackingId": {
+                    "description": "The tracking ID for the shipment. Not updated if missing.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

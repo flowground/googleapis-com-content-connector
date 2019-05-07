@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "accountId": {
+            "required": true,
+            "type": "string"
+        },
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "action": {
+                    "description": "Action to perform for this link. The \"request\" action is only available to select merchants.",
+                    "type": "string"
+                },
+                "linkType": {
+                    "description": "Type of the link between the two accounts.",
+                    "type": "string"
+                },
+                "linkedAccountId": {
+                    "description": "The ID of the linked account.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "country": {
+            "type": "string"
+        },
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "templateName": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "template1",
+                "template1a",
+                "template1b",
+                "template2"
+            ]
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

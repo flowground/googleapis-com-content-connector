@@ -1,0 +1,32 @@
+{
+    "type": "object",
+    "properties": {
+        "accountId": {
+            "required": true,
+            "type": "string"
+        },
+        "contactEmail": {
+            "required": true,
+            "type": "string"
+        },
+        "contactName": {
+            "required": true,
+            "type": "string"
+        },
+        "country": {
+            "required": true,
+            "type": "string"
+        },
+        "language": {
+            "required": true,
+            "type": "string"
+        },
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

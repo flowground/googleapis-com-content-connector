@@ -1,0 +1,339 @@
+{
+    "type": "object",
+    "properties": {
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "country": {
+                    "description": "The  CLDR territory code of the country of the test order to create. Affects the currency and addresses of orders created via template_name, or the addresses of orders created via test_order.\n\nAcceptable values are:  \n- \"US\" \n- \"FR\"  Defaults to US.",
+                    "type": "string"
+                },
+                "templateName": {
+                    "description": "The test order template to use. Specify as an alternative to testOrder as a shortcut for retrieving a template and then creating an order using that template.",
+                    "type": "string"
+                },
+                "testOrder": {
+                    "description": "The test order to create.",
+                    "properties": {
+                        "enableOrderinvoices": {
+                            "description": "Whether the orderinvoices service should support this order.",
+                            "type": "boolean"
+                        },
+                        "kind": {
+                            "default": "content#testOrder",
+                            "description": "Identifies what kind of resource this is. Value: the fixed string \"content#testOrder\".",
+                            "type": "string"
+                        },
+                        "lineItems": {
+                            "description": "Line items that are ordered. At least one line item must be provided.",
+                            "items": {
+                                "properties": {
+                                    "product": {
+                                        "description": "Product data from the time of the order placement.",
+                                        "properties": {
+                                            "brand": {
+                                                "description": "Brand of the item.",
+                                                "type": "string"
+                                            },
+                                            "condition": {
+                                                "description": "Condition or state of the item.",
+                                                "type": "string"
+                                            },
+                                            "contentLanguage": {
+                                                "description": "The two-letter ISO 639-1 language code for the item.",
+                                                "type": "string"
+                                            },
+                                            "gtin": {
+                                                "description": "Global Trade Item Number (GTIN) of the item. Optional.",
+                                                "type": "string"
+                                            },
+                                            "imageLink": {
+                                                "description": "URL of an image of the item.",
+                                                "type": "string"
+                                            },
+                                            "itemGroupId": {
+                                                "description": "Shared identifier for all variants of the same product. Optional.",
+                                                "type": "string"
+                                            },
+                                            "mpn": {
+                                                "description": "Manufacturer Part Number (MPN) of the item. Optional.",
+                                                "type": "string"
+                                            },
+                                            "offerId": {
+                                                "description": "An identifier of the item.",
+                                                "type": "string"
+                                            },
+                                            "price": {
+                                                "description": "The price for the product. Tax is automatically calculated for MFL orders. For non-MFL orders, tax settings from Merchant Center are applied.",
+                                                "properties": {
+                                                    "currency": {
+                                                        "description": "The currency of the price.",
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "description": "The price represented as a number.",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "targetCountry": {
+                                                "description": "The CLDR territory code of the target country of the product.",
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "description": "The title of the product.",
+                                                "type": "string"
+                                            },
+                                            "variantAttributes": {
+                                                "description": "Variant attributes for the item. Optional.",
+                                                "items": {
+                                                    "properties": {
+                                                        "dimension": {
+                                                            "description": "The dimension of the variant.",
+                                                            "type": "string"
+                                                        },
+                                                        "value": {
+                                                            "description": "The value for the dimension.",
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "type": "array"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "quantityOrdered": {
+                                        "description": "Number of items ordered.",
+                                        "format": "uint32",
+                                        "type": "integer"
+                                    },
+                                    "returnInfo": {
+                                        "description": "Details of the return policy for the line item.",
+                                        "properties": {
+                                            "daysToReturn": {
+                                                "description": "How many days later the item can be returned.",
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "isReturnable": {
+                                                "description": "Whether the item is returnable.",
+                                                "type": "boolean"
+                                            },
+                                            "policyUrl": {
+                                                "description": "URL of the item return policy.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "shippingDetails": {
+                                        "description": "Details of the requested shipping for the line item.",
+                                        "properties": {
+                                            "deliverByDate": {
+                                                "description": "The delivery by date, in ISO 8601 format.",
+                                                "type": "string"
+                                            },
+                                            "method": {
+                                                "description": "Details of the shipping method.",
+                                                "properties": {
+                                                    "carrier": {
+                                                        "description": "The carrier for the shipping. Optional. See shipments[].carrier for a list of acceptable values.",
+                                                        "type": "string"
+                                                    },
+                                                    "maxDaysInTransit": {
+                                                        "description": "Maximum transit time.",
+                                                        "format": "uint32",
+                                                        "type": "integer"
+                                                    },
+                                                    "methodName": {
+                                                        "description": "The name of the shipping method.",
+                                                        "type": "string"
+                                                    },
+                                                    "minDaysInTransit": {
+                                                        "description": "Minimum transit time.",
+                                                        "format": "uint32",
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "shipByDate": {
+                                                "description": "The ship by date, in ISO 8601 format.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "notificationMode": {
+                            "description": "Determines if test order must be pulled by merchant or pushed to merchant via push integration.",
+                            "type": "string"
+                        },
+                        "predefinedBillingAddress": {
+                            "description": "The billing address.",
+                            "type": "string"
+                        },
+                        "predefinedDeliveryAddress": {
+                            "description": "Identifier of one of the predefined delivery addresses for the delivery.",
+                            "type": "string"
+                        },
+                        "predefinedEmail": {
+                            "description": "Email address of the customer.",
+                            "type": "string"
+                        },
+                        "promotions": {
+                            "description": "Promotions associated with the order.",
+                            "items": {
+                                "properties": {
+                                    "applicableItems": {
+                                        "description": "Items which this promotion may be applied to. If empty, there are no restrictions on applicable items and quantity.",
+                                        "items": {
+                                            "properties": {
+                                                "lineItemId": {
+                                                    "type": "string"
+                                                },
+                                                "productId": {
+                                                    "type": "string"
+                                                },
+                                                "quantity": {
+                                                    "description": "The quantity of the associated product.",
+                                                    "format": "int32",
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "appliedItems": {
+                                        "description": "Items which this promotion have been applied to.",
+                                        "items": {
+                                            "properties": {
+                                                "lineItemId": {
+                                                    "type": "string"
+                                                },
+                                                "productId": {
+                                                    "type": "string"
+                                                },
+                                                "quantity": {
+                                                    "description": "The quantity of the associated product.",
+                                                    "format": "int32",
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "funder": {
+                                        "description": "The party funding the promotion.",
+                                        "type": "string"
+                                    },
+                                    "merchantPromotionId": {
+                                        "description": "This field is used to identify promotions within merchants' own systems.",
+                                        "type": "string"
+                                    },
+                                    "priceValue": {
+                                        "description": "Estimated discount applied to price. Amount is pre-tax or post-tax depending on location of order.",
+                                        "properties": {
+                                            "currency": {
+                                                "description": "The currency of the price.",
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "description": "The price represented as a number.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "shortTitle": {
+                                        "description": "A short title of the promotion to be shown on the checkout page.",
+                                        "type": "string"
+                                    },
+                                    "subtype": {
+                                        "description": "The category of the promotion.",
+                                        "type": "string"
+                                    },
+                                    "taxValue": {
+                                        "description": "Estimated discount applied to tax (if allowed by law).",
+                                        "properties": {
+                                            "currency": {
+                                                "description": "The currency of the price.",
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "description": "The price represented as a number.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "title": {
+                                        "description": "The title of the promotion.",
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "description": "The scope of the promotion.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "shippingCost": {
+                            "description": "The price of shipping for all items. Shipping tax is automatically calculated for MFL orders. For non-MFL orders, tax settings from Merchant Center are applied. Note that shipping is not taxed in certain states.",
+                            "properties": {
+                                "currency": {
+                                    "description": "The currency of the price.",
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "description": "The price represented as a number.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "shippingOption": {
+                            "description": "The requested shipping option.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

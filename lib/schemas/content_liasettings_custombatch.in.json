@@ -1,0 +1,190 @@
+{
+    "type": "object",
+    "properties": {
+        "alt": {
+            "type": "string",
+            "enum": [
+                "json"
+            ],
+            "default": "json"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "entries": {
+                    "description": "The request entries to be processed in the batch.",
+                    "items": {
+                        "properties": {
+                            "accountId": {
+                                "description": "The ID of the account for which to get/update account shipping settings.",
+                                "format": "uint64",
+                                "type": "string"
+                            },
+                            "batchId": {
+                                "description": "An entry ID, unique within the batch request.",
+                                "format": "uint32",
+                                "type": "integer"
+                            },
+                            "contactEmail": {
+                                "description": "Inventory validation contact email. Required only for SetInventoryValidationContact.",
+                                "type": "string"
+                            },
+                            "contactName": {
+                                "description": "Inventory validation contact name. Required only for SetInventoryValidationContact.",
+                                "type": "string"
+                            },
+                            "country": {
+                                "description": "The country code. Required only for RequestInventoryVerification.",
+                                "type": "string"
+                            },
+                            "gmbEmail": {
+                                "description": "The GMB account. Required only for RequestGmbAccess.",
+                                "type": "string"
+                            },
+                            "liaSettings": {
+                                "description": "The account Lia settings to update. Only defined if the method is update.",
+                                "properties": {
+                                    "accountId": {
+                                        "description": "The ID of the account to which these LIA settings belong. Ignored upon update, always present in get request responses.",
+                                        "format": "uint64",
+                                        "type": "string"
+                                    },
+                                    "countrySettings": {
+                                        "description": "The LIA settings for each country.",
+                                        "items": {
+                                            "properties": {
+                                                "about": {
+                                                    "description": "The settings for the About page.",
+                                                    "properties": {
+                                                        "status": {
+                                                            "description": "The status of the verification process for the About page.",
+                                                            "type": "string"
+                                                        },
+                                                        "url": {
+                                                            "description": "The URL for the About page.",
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "country": {
+                                                    "description": "CLDR country code (e.g. \"US\").",
+                                                    "type": "string"
+                                                },
+                                                "hostedLocalStorefrontActive": {
+                                                    "description": "The status of the \"Merchant hosted local storefront\" feature.",
+                                                    "type": "boolean"
+                                                },
+                                                "inventory": {
+                                                    "description": "LIA inventory verification settings.",
+                                                    "properties": {
+                                                        "inventoryVerificationContactEmail": {
+                                                            "description": "The email of the contact for the inventory verification process.",
+                                                            "type": "string"
+                                                        },
+                                                        "inventoryVerificationContactName": {
+                                                            "description": "The name of the contact for the inventory verification process.",
+                                                            "type": "string"
+                                                        },
+                                                        "inventoryVerificationContactStatus": {
+                                                            "description": "The status of the verification contact.",
+                                                            "type": "string"
+                                                        },
+                                                        "status": {
+                                                            "description": "The status of the inventory verification process.",
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "onDisplayToOrder": {
+                                                    "description": "LIA \"On Display To Order\" settings.",
+                                                    "properties": {
+                                                        "shippingCostPolicyUrl": {
+                                                            "description": "Shipping cost and policy URL.",
+                                                            "type": "string"
+                                                        },
+                                                        "status": {
+                                                            "description": "The status of the ?On display to order? feature.",
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "posDataProvider": {
+                                                    "description": "The POS data provider linked with this country.",
+                                                    "properties": {
+                                                        "posDataProviderId": {
+                                                            "description": "The ID of the POS data provider.",
+                                                            "format": "uint64",
+                                                            "type": "string"
+                                                        },
+                                                        "posExternalAccountId": {
+                                                            "description": "The account ID by which this merchant is known to the POS data provider.",
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "storePickupActive": {
+                                                    "description": "The status of the \"Store pickup\" feature.",
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "kind": {
+                                        "default": "content#liaSettings",
+                                        "description": "Identifies what kind of resource this is. Value: the fixed string \"content#liaSettings\".",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "merchantId": {
+                                "description": "The ID of the managing account.",
+                                "format": "uint64",
+                                "type": "string"
+                            },
+                            "method": {
+                                "type": "string"
+                            },
+                            "posDataProviderId": {
+                                "description": "The ID of POS data provider. Required only for SetPosProvider.",
+                                "format": "uint64",
+                                "type": "string"
+                            },
+                            "posExternalAccountId": {
+                                "description": "The account ID by which this merchant is known to the POS provider.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

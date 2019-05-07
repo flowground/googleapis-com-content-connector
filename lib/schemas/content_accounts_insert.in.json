@@ -1,0 +1,192 @@
+{
+    "type": "object",
+    "properties": {
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Account data. After the creation of a new account it may take a few minutes before it is fully operational. The methods delete, insert, patch, and update require the admin role.",
+            "properties": {
+                "adsLinks": {
+                    "description": "List of linked Ads accounts that are active or pending approval. To create a new link request, add a new link with status active to the list. It will remain in a pending state until approved or rejected either in the Ads interface or through the AdWords API. To delete an active link, or to cancel a link request, remove it from the list.",
+                    "items": {
+                        "properties": {
+                            "adsId": {
+                                "description": "Customer ID of the Ads account.",
+                                "format": "uint64",
+                                "type": "string"
+                            },
+                            "status": {
+                                "description": "Status of the link between this Merchant Center account and the Ads account. Upon retrieval, it represents the actual status of the link and can be either active if it was approved in Google Ads or pending if it's pending approval. Upon insertion, it represents the intended status of the link. Re-uploading a link with status active when it's still pending or with status pending when it's already active will have no effect: the status will remain unchanged. Re-uploading a link with deprecated status inactive is equivalent to not submitting the link at all and will delete the link if it was active or cancel the link request if it was pending.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "adultContent": {
+                    "description": "Indicates whether the merchant sells adult content.",
+                    "type": "boolean"
+                },
+                "businessInformation": {
+                    "description": "The business information of the account.",
+                    "properties": {
+                        "address": {
+                            "description": "The address of the business.",
+                            "properties": {
+                                "country": {
+                                    "description": "CLDR country code (e.g. \"US\").",
+                                    "type": "string"
+                                },
+                                "locality": {
+                                    "description": "City, town or commune. May also include dependent localities or sublocalities (e.g. neighborhoods or suburbs).",
+                                    "type": "string"
+                                },
+                                "postalCode": {
+                                    "description": "Postal code or ZIP (e.g. \"94043\").",
+                                    "type": "string"
+                                },
+                                "region": {
+                                    "description": "Top-level administrative subdivision of the country. For example, a state like California (\"CA\") or a province like Quebec (\"QC\").",
+                                    "type": "string"
+                                },
+                                "streetAddress": {
+                                    "description": "Street-level part of the address.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "customerService": {
+                            "description": "The customer service information of the business.",
+                            "properties": {
+                                "email": {
+                                    "description": "Customer service email.",
+                                    "type": "string"
+                                },
+                                "phoneNumber": {
+                                    "description": "Customer service phone number.",
+                                    "type": "string"
+                                },
+                                "url": {
+                                    "description": "Customer service URL.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "phoneNumber": {
+                            "description": "The phone number of the business.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "googleMyBusinessLink": {
+                    "description": "The GMB account which is linked or in the process of being linked with the Merchant Center account.",
+                    "properties": {
+                        "gmbEmail": {
+                            "description": "The GMB email address of which a specific account within a GMB account. A sample account within a GMB account could be a business account with set of locations, managed under the GMB account.",
+                            "type": "string"
+                        },
+                        "status": {
+                            "description": "Status of the link between this Merchant Center account and the GMB account.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "id": {
+                    "description": "Merchant Center account ID.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "kind": {
+                    "default": "content#account",
+                    "description": "Identifies what kind of resource this is. Value: the fixed string \"content#account\".",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Display name for the account.",
+                    "type": "string"
+                },
+                "sellerId": {
+                    "description": "Client-specific, locally-unique, internal ID for the child account.",
+                    "type": "string"
+                },
+                "users": {
+                    "description": "Users with access to the account. Every account (except for subaccounts) must have at least one admin user.",
+                    "items": {
+                        "properties": {
+                            "admin": {
+                                "description": "Whether user is an admin.",
+                                "type": "boolean"
+                            },
+                            "emailAddress": {
+                                "description": "User's email address.",
+                                "type": "string"
+                            },
+                            "orderManager": {
+                                "description": "Whether user is an order manager.",
+                                "type": "boolean"
+                            },
+                            "paymentsAnalyst": {
+                                "description": "Whether user can access payment statements.",
+                                "type": "boolean"
+                            },
+                            "paymentsManager": {
+                                "description": "Whether user can manage payment settings.",
+                                "type": "boolean"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "websiteUrl": {
+                    "description": "The merchant's website.",
+                    "type": "string"
+                },
+                "youtubeChannelLinks": {
+                    "description": "List of linked YouTube channels that are active or pending approval. To create a new link request, add a new link with status active to the list. It will remain in a pending state until approved or rejected in the YT Creator Studio interface. To delete an active link, or to cancel a link request, remove it from the list.",
+                    "items": {
+                        "properties": {
+                            "channelId": {
+                                "description": "Channel ID.",
+                                "type": "string"
+                            },
+                            "status": {
+                                "description": "Status of the link between this Merchant Center account and the YouTube channel. Upon retrieval, it represents the actual status of the link and can be either active if it was approved in YT Creator Studio or pending if it's pending approval. Upon insertion, it represents the intended status of the link. Re-uploading a link with status active when it's still pending or with status pending when it's already active will have no effect: the status will remain unchanged. Re-uploading a link with deprecated status inactive is equivalent to not submitting the link at all and will delete the link if it was active or cancel the link request if it was pending.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

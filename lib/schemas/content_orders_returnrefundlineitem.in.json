@@ -1,0 +1,87 @@
+{
+    "type": "object",
+    "properties": {
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "orderId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "lineItemId": {
+                    "description": "The ID of the line item to return. Either lineItemId or productId is required.",
+                    "type": "string"
+                },
+                "operationId": {
+                    "description": "The ID of the operation. Unique across all operations for a given order.",
+                    "type": "string"
+                },
+                "priceAmount": {
+                    "description": "The amount to be refunded. This may be pre-tax or post-tax depending on the location of the order. If omitted, refundless return is assumed.",
+                    "properties": {
+                        "currency": {
+                            "description": "The currency of the price.",
+                            "type": "string"
+                        },
+                        "value": {
+                            "description": "The price represented as a number.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "productId": {
+                    "description": "The ID of the product to return. This is the REST ID used in the products service. Either lineItemId or productId is required.",
+                    "type": "string"
+                },
+                "quantity": {
+                    "description": "The quantity to return and refund.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "reason": {
+                    "description": "The reason for the return.",
+                    "type": "string"
+                },
+                "reasonText": {
+                    "description": "The explanation of the reason.",
+                    "type": "string"
+                },
+                "taxAmount": {
+                    "description": "The amount of tax to be refunded. Optional, but if filled, then priceAmount must be set. Calculated automatically if not provided.",
+                    "properties": {
+                        "currency": {
+                            "description": "The currency of the price.",
+                            "type": "string"
+                        },
+                        "value": {
+                            "description": "The price represented as a number.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,198 @@
+{
+    "type": "object",
+    "properties": {
+        "alt": {
+            "type": "string",
+            "enum": [
+                "json"
+            ],
+            "default": "json"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "entries": {
+                    "description": "The request entries to be processed in the batch.",
+                    "items": {
+                        "properties": {
+                            "batchId": {
+                                "description": "An entry ID, unique within the batch request.",
+                                "format": "uint32",
+                                "type": "integer"
+                            },
+                            "inventory": {
+                                "description": "The inventory to submit. Set this only if the method is inventory.",
+                                "properties": {
+                                    "contentLanguage": {
+                                        "description": "The two-letter ISO 639-1 language code for the item.",
+                                        "type": "string"
+                                    },
+                                    "gtin": {
+                                        "description": "Global Trade Item Number.",
+                                        "type": "string"
+                                    },
+                                    "itemId": {
+                                        "description": "A unique identifier for the item.",
+                                        "type": "string"
+                                    },
+                                    "kind": {
+                                        "default": "content#posInventory",
+                                        "description": "Identifies what kind of resource this is. Value: the fixed string \"content#posInventory\".",
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "description": "The current price of the item.",
+                                        "properties": {
+                                            "currency": {
+                                                "description": "The currency of the price.",
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "description": "The price represented as a number.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "quantity": {
+                                        "description": "The available quantity of the item.",
+                                        "format": "int64",
+                                        "type": "string"
+                                    },
+                                    "storeCode": {
+                                        "description": "The identifier of the merchant's store. Either a storeCode inserted via the API or the code of the store in Google My Business.",
+                                        "type": "string"
+                                    },
+                                    "targetCountry": {
+                                        "description": "The CLDR territory code for the item.",
+                                        "type": "string"
+                                    },
+                                    "timestamp": {
+                                        "description": "The inventory timestamp, in ISO 8601 format.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "merchantId": {
+                                "description": "The ID of the POS data provider.",
+                                "format": "uint64",
+                                "type": "string"
+                            },
+                            "method": {
+                                "type": "string"
+                            },
+                            "sale": {
+                                "description": "The sale information to submit. Set this only if the method is sale.",
+                                "properties": {
+                                    "contentLanguage": {
+                                        "description": "The two-letter ISO 639-1 language code for the item.",
+                                        "type": "string"
+                                    },
+                                    "gtin": {
+                                        "description": "Global Trade Item Number.",
+                                        "type": "string"
+                                    },
+                                    "itemId": {
+                                        "description": "A unique identifier for the item.",
+                                        "type": "string"
+                                    },
+                                    "kind": {
+                                        "default": "content#posSale",
+                                        "description": "Identifies what kind of resource this is. Value: the fixed string \"content#posSale\".",
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "description": "The price of the item.",
+                                        "properties": {
+                                            "currency": {
+                                                "description": "The currency of the price.",
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "description": "The price represented as a number.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "quantity": {
+                                        "description": "The relative change of the available quantity. Negative for items returned.",
+                                        "format": "int64",
+                                        "type": "string"
+                                    },
+                                    "saleId": {
+                                        "description": "A unique ID to group items from the same sale event.",
+                                        "type": "string"
+                                    },
+                                    "storeCode": {
+                                        "description": "The identifier of the merchant's store. Either a storeCode inserted via the API or the code of the store in Google My Business.",
+                                        "type": "string"
+                                    },
+                                    "targetCountry": {
+                                        "description": "The CLDR territory code for the item.",
+                                        "type": "string"
+                                    },
+                                    "timestamp": {
+                                        "description": "The inventory timestamp, in ISO 8601 format.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "store": {
+                                "description": "The store information to submit. Set this only if the method is insert.",
+                                "properties": {
+                                    "kind": {
+                                        "default": "content#posStore",
+                                        "description": "Identifies what kind of resource this is. Value: the fixed string \"content#posStore\".",
+                                        "type": "string"
+                                    },
+                                    "storeAddress": {
+                                        "description": "The street address of the store.",
+                                        "type": "string"
+                                    },
+                                    "storeCode": {
+                                        "description": "A store identifier that is unique for the given merchant.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "storeCode": {
+                                "description": "The store code. Set this only if the method is delete or get.",
+                                "type": "string"
+                            },
+                            "targetMerchantId": {
+                                "description": "The ID of the account for which to get/submit data.",
+                                "format": "uint64",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

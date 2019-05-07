@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "country": {
+            "type": "string"
+        },
+        "datafeedId": {
+            "required": true,
+            "type": "string"
+        },
+        "language": {
+            "type": "string"
+        },
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

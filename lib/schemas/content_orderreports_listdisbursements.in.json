@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "disbursementEndDate": {
+            "type": "string"
+        },
+        "disbursementStartDate": {
+            "required": true,
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer"
+        },
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

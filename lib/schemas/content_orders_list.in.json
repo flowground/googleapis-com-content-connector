@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "properties": {
+        "acknowledged": {
+            "type": "boolean"
+        },
+        "maxResults": {
+            "type": "integer"
+        },
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "orderBy": {
+            "type": "string",
+            "enum": [
+                "placedDate asc",
+                "placedDate desc"
+            ]
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "placedDateEnd": {
+            "type": "string"
+        },
+        "placedDateStart": {
+            "type": "string"
+        },
+        "statuses": {
+            "type": "array",
+            "items": {
+                "enum": [
+                    "active",
+                    "canceled",
+                    "completed",
+                    "delivered",
+                    "inProgress",
+                    "partiallyDelivered",
+                    "partiallyReturned",
+                    "partiallyShipped",
+                    "pendingShipment",
+                    "returned",
+                    "shipped"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

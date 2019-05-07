@@ -1,0 +1,72 @@
+{
+    "type": "object",
+    "properties": {
+        "alt": {
+            "type": "string",
+            "enum": [
+                "json"
+            ],
+            "default": "json"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "entries": {
+                    "description": "The request entries to be processed in the batch.",
+                    "items": {
+                        "description": "A batch entry encoding a single non-batch accountstatuses request.",
+                        "properties": {
+                            "accountId": {
+                                "description": "The ID of the (sub-)account whose status to get.",
+                                "format": "uint64",
+                                "type": "string"
+                            },
+                            "batchId": {
+                                "description": "An entry ID, unique within the batch request.",
+                                "format": "uint32",
+                                "type": "integer"
+                            },
+                            "destinations": {
+                                "description": "If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination.",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "merchantId": {
+                                "description": "The ID of the managing account.",
+                                "format": "uint64",
+                                "type": "string"
+                            },
+                            "method": {
+                                "description": "The method (get).",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

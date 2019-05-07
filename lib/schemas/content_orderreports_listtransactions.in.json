@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "disbursementId": {
+            "required": true,
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer"
+        },
+        "merchantId": {
+            "required": true,
+            "type": "string"
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "transactionEndDate": {
+            "type": "string"
+        },
+        "transactionStartDate": {
+            "required": true,
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

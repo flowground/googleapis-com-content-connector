@@ -1,0 +1,1476 @@
+{
+    "title": "Content API for Shopping",
+    "description": "Manages product items, inventory, and Merchant Center accounts for Google Shopping.",
+    "docsUrl": "https://developers.google.com/shopping-content",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/content/v2.1/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://www.googleapis.com/content/v2.1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Oauth2": {
+                "label": "Oauth 2.0 authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "content_accounts_authinfo": {
+            "main": "./lib/actions/content_accounts_authinfo.js",
+            "title": "Returns information about the authenticated user.",
+            "description": "Returns information about the authenticated user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_accounts_authinfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_accounts_custombatch": {
+            "main": "./lib/actions/content_accounts_custombatch.js",
+            "title": "Retrieves, inserts, updates, and deletes multiple Merchant Center (sub-)accounts in a single request.",
+            "description": "Retrieves, inserts, updates, and deletes multiple Merchant Center (sub-)accounts in a single request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_accounts_custombatch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_accountstatuses_custombatch": {
+            "main": "./lib/actions/content_accountstatuses_custombatch.js",
+            "title": "Retrieves multiple Merchant Center account statuses in a single request.",
+            "description": "Retrieves multiple Merchant Center account statuses in a single request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_accountstatuses_custombatch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_accounttax_custombatch": {
+            "main": "./lib/actions/content_accounttax_custombatch.js",
+            "title": "Retrieves and updates tax settings of multiple accounts in a single request.",
+            "description": "Retrieves and updates tax settings of multiple accounts in a single request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_accounttax_custombatch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_datafeeds_custombatch": {
+            "main": "./lib/actions/content_datafeeds_custombatch.js",
+            "title": "content_datafeeds_custombatch",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_datafeeds_custombatch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_datafeedstatuses_custombatch": {
+            "main": "./lib/actions/content_datafeedstatuses_custombatch.js",
+            "title": "content_datafeedstatuses_custombatch",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_datafeedstatuses_custombatch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_liasettings_custombatch": {
+            "main": "./lib/actions/content_liasettings_custombatch.js",
+            "title": "Retrieves and/or updates the LIA settings of multiple accounts in a single request.",
+            "description": "Retrieves and/or updates the LIA settings of multiple accounts in a single request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_liasettings_custombatch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_liasettings_listposdataproviders": {
+            "main": "./lib/actions/content_liasettings_listposdataproviders.js",
+            "title": "Retrieves the list of POS data providers that have active settings for the all eiligible countries.",
+            "description": "Retrieves the list of POS data providers that have active settings for the all eiligible countries.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_liasettings_listposdataproviders.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_pos_custombatch": {
+            "main": "./lib/actions/content_pos_custombatch.js",
+            "title": "Batches multiple POS-related calls in a single request.",
+            "description": "Batches multiple POS-related calls in a single request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_pos_custombatch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_products_custombatch": {
+            "main": "./lib/actions/content_products_custombatch.js",
+            "title": "Retrieves, inserts, and deletes multiple products in a single request.",
+            "description": "Retrieves, inserts, and deletes multiple products in a single request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_products_custombatch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_productstatuses_custombatch": {
+            "main": "./lib/actions/content_productstatuses_custombatch.js",
+            "title": "Gets the statuses of multiple products in a single request.",
+            "description": "Gets the statuses of multiple products in a single request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_productstatuses_custombatch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_regionalinventory_custombatch": {
+            "main": "./lib/actions/content_regionalinventory_custombatch.js",
+            "title": "Updates regional inventory for multiple products or regions in a single request.",
+            "description": "Updates regional inventory for multiple products or regions in a single request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_regionalinventory_custombatch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_shippingsettings_custombatch": {
+            "main": "./lib/actions/content_shippingsettings_custombatch.js",
+            "title": "Retrieves and updates the shipping settings of multiple accounts in a single request.",
+            "description": "Retrieves and updates the shipping settings of multiple accounts in a single request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_shippingsettings_custombatch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_accounts_list": {
+            "main": "./lib/actions/content_accounts_list.js",
+            "title": "Lists the sub-accounts in your Merchant Center account.",
+            "description": "Lists the sub-accounts in your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_accounts_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_accounts_insert": {
+            "main": "./lib/actions/content_accounts_insert.js",
+            "title": "Creates a Merchant Center sub-account.",
+            "description": "Creates a Merchant Center sub-account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_accounts_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_accounts_delete": {
+            "main": "./lib/actions/content_accounts_delete.js",
+            "title": "Deletes a Merchant Center sub-account.",
+            "description": "Deletes a Merchant Center sub-account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_accounts_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_accounts_get": {
+            "main": "./lib/actions/content_accounts_get.js",
+            "title": "Retrieves a Merchant Center account.",
+            "description": "Retrieves a Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_accounts_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_accounts_update": {
+            "main": "./lib/actions/content_accounts_update.js",
+            "title": "Updates a Merchant Center account.",
+            "description": "Updates a Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_accounts_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_accounts_claimwebsite": {
+            "main": "./lib/actions/content_accounts_claimwebsite.js",
+            "title": "Claims the website of a Merchant Center sub-account.",
+            "description": "Claims the website of a Merchant Center sub-account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_accounts_claimwebsite.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_accounts_link": {
+            "main": "./lib/actions/content_accounts_link.js",
+            "title": "Performs an action on a link between a Merchant Center account and another account.",
+            "description": "Performs an action on a link between a Merchant Center account and another account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_accounts_link.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_accountstatuses_list": {
+            "main": "./lib/actions/content_accountstatuses_list.js",
+            "title": "Lists the statuses of the sub-accounts in your Merchant Center account.",
+            "description": "Lists the statuses of the sub-accounts in your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_accountstatuses_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_accountstatuses_get": {
+            "main": "./lib/actions/content_accountstatuses_get.js",
+            "title": "Retrieves the status of a Merchant Center account. No itemLevelIssues are returned for multi-client accounts.",
+            "description": "Retrieves the status of a Merchant Center account. No itemLevelIssues are returned for multi-client accounts.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_accountstatuses_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_accounttax_list": {
+            "main": "./lib/actions/content_accounttax_list.js",
+            "title": "Lists the tax settings of the sub-accounts in your Merchant Center account.",
+            "description": "Lists the tax settings of the sub-accounts in your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_accounttax_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_accounttax_get": {
+            "main": "./lib/actions/content_accounttax_get.js",
+            "title": "Retrieves the tax settings of the account.",
+            "description": "Retrieves the tax settings of the account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_accounttax_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_accounttax_update": {
+            "main": "./lib/actions/content_accounttax_update.js",
+            "title": "Updates the tax settings of the account.",
+            "description": "Updates the tax settings of the account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_accounttax_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_datafeeds_list": {
+            "main": "./lib/actions/content_datafeeds_list.js",
+            "title": "Lists the configurations for datafeeds in your Merchant Center account.",
+            "description": "Lists the configurations for datafeeds in your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_datafeeds_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_datafeeds_insert": {
+            "main": "./lib/actions/content_datafeeds_insert.js",
+            "title": "Registers a datafeed configuration with your Merchant Center account.",
+            "description": "Registers a datafeed configuration with your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_datafeeds_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_datafeeds_delete": {
+            "main": "./lib/actions/content_datafeeds_delete.js",
+            "title": "Deletes a datafeed configuration from your Merchant Center account.",
+            "description": "Deletes a datafeed configuration from your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_datafeeds_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_datafeeds_get": {
+            "main": "./lib/actions/content_datafeeds_get.js",
+            "title": "Retrieves a datafeed configuration from your Merchant Center account.",
+            "description": "Retrieves a datafeed configuration from your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_datafeeds_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_datafeeds_update": {
+            "main": "./lib/actions/content_datafeeds_update.js",
+            "title": "Updates a datafeed configuration of your Merchant Center account.",
+            "description": "Updates a datafeed configuration of your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_datafeeds_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_datafeeds_fetchnow": {
+            "main": "./lib/actions/content_datafeeds_fetchnow.js",
+            "title": "Invokes a fetch for the datafeed in your Merchant Center account.",
+            "description": "Invokes a fetch for the datafeed in your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_datafeeds_fetchnow.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_datafeedstatuses_list": {
+            "main": "./lib/actions/content_datafeedstatuses_list.js",
+            "title": "Lists the statuses of the datafeeds in your Merchant Center account.",
+            "description": "Lists the statuses of the datafeeds in your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_datafeedstatuses_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_datafeedstatuses_get": {
+            "main": "./lib/actions/content_datafeedstatuses_get.js",
+            "title": "Retrieves the status of a datafeed from your Merchant Center account.",
+            "description": "Retrieves the status of a datafeed from your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_datafeedstatuses_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_liasettings_list": {
+            "main": "./lib/actions/content_liasettings_list.js",
+            "title": "Lists the LIA settings of the sub-accounts in your Merchant Center account.",
+            "description": "Lists the LIA settings of the sub-accounts in your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_liasettings_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_liasettings_get": {
+            "main": "./lib/actions/content_liasettings_get.js",
+            "title": "Retrieves the LIA settings of the account.",
+            "description": "Retrieves the LIA settings of the account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_liasettings_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_liasettings_update": {
+            "main": "./lib/actions/content_liasettings_update.js",
+            "title": "Updates the LIA settings of the account.",
+            "description": "Updates the LIA settings of the account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_liasettings_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_liasettings_getaccessiblegmbaccounts": {
+            "main": "./lib/actions/content_liasettings_getaccessiblegmbaccounts.js",
+            "title": "Retrieves the list of accessible Google My Business accounts.",
+            "description": "Retrieves the list of accessible Google My Business accounts.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_liasettings_getaccessiblegmbaccounts.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_liasettings_requestgmbaccess": {
+            "main": "./lib/actions/content_liasettings_requestgmbaccess.js",
+            "title": "Requests access to a specified Google My Business account.",
+            "description": "Requests access to a specified Google My Business account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_liasettings_requestgmbaccess.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_liasettings_requestinventoryverification": {
+            "main": "./lib/actions/content_liasettings_requestinventoryverification.js",
+            "title": "Requests inventory validation for the specified country.",
+            "description": "Requests inventory validation for the specified country.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_liasettings_requestinventoryverification.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_liasettings_setinventoryverificationcontact": {
+            "main": "./lib/actions/content_liasettings_setinventoryverificationcontact.js",
+            "title": "Sets the inventory verification contract for the specified country.",
+            "description": "Sets the inventory verification contract for the specified country.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_liasettings_setinventoryverificationcontact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_liasettings_setposdataprovider": {
+            "main": "./lib/actions/content_liasettings_setposdataprovider.js",
+            "title": "Sets the POS data provider for the specified country.",
+            "description": "Sets the POS data provider for the specified country.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_liasettings_setposdataprovider.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orderinvoices_createchargeinvoice": {
+            "main": "./lib/actions/content_orderinvoices_createchargeinvoice.js",
+            "title": "Creates a charge invoice for a shipment group, and triggers a charge capture for non-facilitated payment orders.",
+            "description": "Creates a charge invoice for a shipment group, and triggers a charge capture for non-facilitated payment orders.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orderinvoices_createchargeinvoice.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orderinvoices_createrefundinvoice": {
+            "main": "./lib/actions/content_orderinvoices_createrefundinvoice.js",
+            "title": "Creates a refund invoice for one or more shipment groups, and triggers a refund for non-facilitated payment orders. This can only be used for line items that have previously been charged using createChargeInvoice. All amounts (except for the summary) are incremental with respect to the previous invoice.",
+            "description": "Creates a refund invoice for one or more shipment groups, and triggers a refund for non-facilitated payment orders. This can only be used for line items that have previously been charged using createChargeInvoice. All amounts (except for the summary) are incremental with respect to the previous invoice.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orderinvoices_createrefundinvoice.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orderreports_listdisbursements": {
+            "main": "./lib/actions/content_orderreports_listdisbursements.js",
+            "title": "Retrieves a report for disbursements from your Merchant Center account.",
+            "description": "Retrieves a report for disbursements from your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orderreports_listdisbursements.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orderreports_listtransactions": {
+            "main": "./lib/actions/content_orderreports_listtransactions.js",
+            "title": "Retrieves a list of transactions for a disbursement from your Merchant Center account.",
+            "description": "Retrieves a list of transactions for a disbursement from your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orderreports_listtransactions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orderreturns_list": {
+            "main": "./lib/actions/content_orderreturns_list.js",
+            "title": "Lists order returns in your Merchant Center account.",
+            "description": "Lists order returns in your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orderreturns_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orderreturns_get": {
+            "main": "./lib/actions/content_orderreturns_get.js",
+            "title": "Retrieves an order return from your Merchant Center account.",
+            "description": "Retrieves an order return from your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orderreturns_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_list": {
+            "main": "./lib/actions/content_orders_list.js",
+            "title": "Lists the orders in your Merchant Center account.",
+            "description": "Lists the orders in your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_get": {
+            "main": "./lib/actions/content_orders_get.js",
+            "title": "Retrieves an order from your Merchant Center account.",
+            "description": "Retrieves an order from your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_acknowledge": {
+            "main": "./lib/actions/content_orders_acknowledge.js",
+            "title": "Marks an order as acknowledged.",
+            "description": "Marks an order as acknowledged.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_acknowledge.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_cancel": {
+            "main": "./lib/actions/content_orders_cancel.js",
+            "title": "Cancels all line items in an order, making a full refund.",
+            "description": "Cancels all line items in an order, making a full refund.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_cancel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_cancellineitem": {
+            "main": "./lib/actions/content_orders_cancellineitem.js",
+            "title": "Cancels a line item, making a full refund.",
+            "description": "Cancels a line item, making a full refund.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_cancellineitem.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_instorerefundlineitem": {
+            "main": "./lib/actions/content_orders_instorerefundlineitem.js",
+            "title": "Notifies that item return and refund was handled directly by merchant outside of Google payments processing (e.g. cash refund done in store).",
+            "description": "Notifies that item return and refund was handled directly by merchant outside of Google payments processing (e.g. cash refund done in store).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_instorerefundlineitem.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_rejectreturnlineitem": {
+            "main": "./lib/actions/content_orders_rejectreturnlineitem.js",
+            "title": "Rejects return on an line item.",
+            "description": "Rejects return on an line item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_rejectreturnlineitem.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_returnrefundlineitem": {
+            "main": "./lib/actions/content_orders_returnrefundlineitem.js",
+            "title": "Returns and refunds a line item. Note that this method can only be called on fully shipped orders.",
+            "description": "Returns and refunds a line item. Note that this method can only be called on fully shipped orders.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_returnrefundlineitem.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_setlineitemmetadata": {
+            "main": "./lib/actions/content_orders_setlineitemmetadata.js",
+            "title": "Sets (or overrides if it already exists) merchant provided annotations in the form of key-value pairs. A common use case would be to supply us with additional structured information about a line item that cannot be provided via other methods. Submitted key-value pairs can be retrieved as part of the orders resource.",
+            "description": "Sets (or overrides if it already exists) merchant provided annotations in the form of key-value pairs. A common use case would be to supply us with additional structured information about a line item that cannot be provided via other methods. Submitted key-value pairs can be retrieved as part of the orders resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_setlineitemmetadata.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_shiplineitems": {
+            "main": "./lib/actions/content_orders_shiplineitems.js",
+            "title": "Marks line item(s) as shipped.",
+            "description": "Marks line item(s) as shipped.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_shiplineitems.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_createtestreturn": {
+            "main": "./lib/actions/content_orders_createtestreturn.js",
+            "title": "Sandbox only. Creates a test return.",
+            "description": "Sandbox only. Creates a test return.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_createtestreturn.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_updatelineitemshippingdetails": {
+            "main": "./lib/actions/content_orders_updatelineitemshippingdetails.js",
+            "title": "Updates ship by and delivery by dates for a line item.",
+            "description": "Updates ship by and delivery by dates for a line item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_updatelineitemshippingdetails.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_updatemerchantorderid": {
+            "main": "./lib/actions/content_orders_updatemerchantorderid.js",
+            "title": "Updates the merchant order ID for a given order.",
+            "description": "Updates the merchant order ID for a given order.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_updatemerchantorderid.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_updateshipment": {
+            "main": "./lib/actions/content_orders_updateshipment.js",
+            "title": "Updates a shipment's status, carrier, and/or tracking ID.",
+            "description": "Updates a shipment's status, carrier, and/or tracking ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_updateshipment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_getbymerchantorderid": {
+            "main": "./lib/actions/content_orders_getbymerchantorderid.js",
+            "title": "Retrieves an order using merchant order ID.",
+            "description": "Retrieves an order using merchant order ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_getbymerchantorderid.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_pos_inventory": {
+            "main": "./lib/actions/content_pos_inventory.js",
+            "title": "Submit inventory for the given merchant.",
+            "description": "Submit inventory for the given merchant.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_pos_inventory.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_pos_sale": {
+            "main": "./lib/actions/content_pos_sale.js",
+            "title": "Submit a sale event for the given merchant.",
+            "description": "Submit a sale event for the given merchant.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_pos_sale.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_pos_list": {
+            "main": "./lib/actions/content_pos_list.js",
+            "title": "Lists the stores of the target merchant.",
+            "description": "Lists the stores of the target merchant.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_pos_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_pos_insert": {
+            "main": "./lib/actions/content_pos_insert.js",
+            "title": "Creates a store for the given merchant.",
+            "description": "Creates a store for the given merchant.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_pos_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_pos_delete": {
+            "main": "./lib/actions/content_pos_delete.js",
+            "title": "Deletes a store for the given merchant.",
+            "description": "Deletes a store for the given merchant.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_pos_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_pos_get": {
+            "main": "./lib/actions/content_pos_get.js",
+            "title": "Retrieves information about the given store.",
+            "description": "Retrieves information about the given store.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_pos_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_products_list": {
+            "main": "./lib/actions/content_products_list.js",
+            "title": "Lists the products in your Merchant Center account.",
+            "description": "Lists the products in your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_products_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_products_insert": {
+            "main": "./lib/actions/content_products_insert.js",
+            "title": "Uploads a product to your Merchant Center account. If an item with the same channel, contentLanguage, offerId, and targetCountry already exists, this method updates that entry.",
+            "description": "Uploads a product to your Merchant Center account. If an item with the same channel, contentLanguage, offerId, and targetCountry already exists, this method updates that entry.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_products_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_products_delete": {
+            "main": "./lib/actions/content_products_delete.js",
+            "title": "Deletes a product from your Merchant Center account.",
+            "description": "Deletes a product from your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_products_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_products_get": {
+            "main": "./lib/actions/content_products_get.js",
+            "title": "Retrieves a product from your Merchant Center account.",
+            "description": "Retrieves a product from your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_products_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_regionalinventory_insert": {
+            "main": "./lib/actions/content_regionalinventory_insert.js",
+            "title": "Update the regional inventory of a product in your Merchant Center account. If a regional inventory with the same region ID already exists, this method updates that entry.",
+            "description": "Update the regional inventory of a product in your Merchant Center account. If a regional inventory with the same region ID already exists, this method updates that entry.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_regionalinventory_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_productstatuses_list": {
+            "main": "./lib/actions/content_productstatuses_list.js",
+            "title": "Lists the statuses of the products in your Merchant Center account.",
+            "description": "Lists the statuses of the products in your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_productstatuses_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_productstatuses_get": {
+            "main": "./lib/actions/content_productstatuses_get.js",
+            "title": "Gets the status of a product from your Merchant Center account.",
+            "description": "Gets the status of a product from your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_productstatuses_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_shippingsettings_list": {
+            "main": "./lib/actions/content_shippingsettings_list.js",
+            "title": "Lists the shipping settings of the sub-accounts in your Merchant Center account.",
+            "description": "Lists the shipping settings of the sub-accounts in your Merchant Center account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_shippingsettings_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_shippingsettings_get": {
+            "main": "./lib/actions/content_shippingsettings_get.js",
+            "title": "Retrieves the shipping settings of the account.",
+            "description": "Retrieves the shipping settings of the account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_shippingsettings_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_shippingsettings_update": {
+            "main": "./lib/actions/content_shippingsettings_update.js",
+            "title": "Updates the shipping settings of the account.",
+            "description": "Updates the shipping settings of the account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_shippingsettings_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_shippingsettings_getsupportedcarriers": {
+            "main": "./lib/actions/content_shippingsettings_getsupportedcarriers.js",
+            "title": "Retrieves supported carriers and carrier services for an account.",
+            "description": "Retrieves supported carriers and carrier services for an account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_shippingsettings_getsupportedcarriers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_shippingsettings_getsupportedholidays": {
+            "main": "./lib/actions/content_shippingsettings_getsupportedholidays.js",
+            "title": "Retrieves supported holidays for an account.",
+            "description": "Retrieves supported holidays for an account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_shippingsettings_getsupportedholidays.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_createtestorder": {
+            "main": "./lib/actions/content_orders_createtestorder.js",
+            "title": "Sandbox only. Creates a test order.",
+            "description": "Sandbox only. Creates a test order.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_createtestorder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_advancetestorder": {
+            "main": "./lib/actions/content_orders_advancetestorder.js",
+            "title": "Sandbox only. Moves a test order from state \"inProgress\" to state \"pendingShipment\".",
+            "description": "Sandbox only. Moves a test order from state \"inProgress\" to state \"pendingShipment\".",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_advancetestorder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_canceltestorderbycustomer": {
+            "main": "./lib/actions/content_orders_canceltestorderbycustomer.js",
+            "title": "Sandbox only. Cancels a test order for customer-initiated cancellation.",
+            "description": "Sandbox only. Cancels a test order for customer-initiated cancellation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_canceltestorderbycustomer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "content_orders_gettestordertemplate": {
+            "main": "./lib/actions/content_orders_gettestordertemplate.js",
+            "title": "Sandbox only. Retrieves an order template that can be used to quickly create a new order in sandbox.",
+            "description": "Sandbox only. Retrieves an order template that can be used to quickly create a new order in sandbox.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/content_orders_gettestordertemplate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
